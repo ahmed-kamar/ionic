@@ -25,6 +25,20 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&display=swap');
+
+// Set Nunito as the default font
+body {
+    font-family: 'Nunito', sans-serif;
+    color-scheme: light; // Force light theme
+}
+
+// Update Ionic default font variable
+:root {
+    --ion-font-family: 'Nunito', sans-serif;
+    // --ion-color-primary: #F1EDFE !important; /* Update the default selected color */
+}
+
 /**
  * Ionic Dark Mode
  * -----------------------------------------------------
@@ -34,4 +48,4 @@
 
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import '@ionic/angular/css/palettes/dark.system.css';
+// @import '@ionic/angular/css/palettes/dark.system.css';
