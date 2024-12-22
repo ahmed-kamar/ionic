@@ -1,90 +1,106 @@
 <ion-content [fullscreen]="true">
-  <ion-card>
-    <ion-card-content>
-      <form [formGroup]="subscribeForm" (ngSubmit)="onSubmit()">
-        <ion-list>
-          <ion-item-divider>
-            <ion-label><b>Contact Information</b></ion-label>
-          </ion-item-divider>
-          <ion-item>
-            <ion-input formControlName="name" placeholder="e.g Osama Alshathri" label="Your Name"
-              label-placement="stacked" />
-          </ion-item>
-          <ion-item>
-            <ion-input formControlName="email" type="email" placeholder="e.g Osama@gmail.com" label="Email"
-              label-placement="stacked" />
-          </ion-item>
-          <ion-item-divider>
-            <ion-label><b>Child’s Information</b></ion-label>
-          </ion-item-divider>
-          <ion-item>
-            <ion-input formControlName="childName" placeholder="e.g Sarah Mohammad" label="Child’s Full Name"
-              label-placement="stacked" />
-          </ion-item>
-          <ion-item>
-            <ion-label class="ion-text-wrap" position="stacked">
-              Child’s Date of Birth
-            </ion-label>
+  <div style="background-image: url('./assets/subscribe.jpeg');background-repeat: no-repeat;
+      background-size: cover;padding: 112px 16px;">
+    <app-container [maxWidth]="1000" >
+      <div style="display: flex; flex-wrap: wrap;justify-content: center;background-color: #fff;box-shadow: 0px 0px 52px 0px #B9A9CD33;border-radius: 24px;">
+        <form [formGroup]="subscribeForm" (ngSubmit)="onSubmit()" style="max-width: 612px;padding: 32px;">
+          <ion-list>
+            <ion-item-divider>
+              <ion-label><b>Contact Information</b></ion-label>
+            </ion-item-divider>
+            <ion-item>
+              <ion-input formControlName="name" placeholder="e.g Osama Alshathri" label="Your Name"
+                label-placement="stacked" />
+            </ion-item>
+            <ion-item>
+              <ion-input formControlName="email" type="email" placeholder="e.g Osama@gmail.com" label="Email"
+                label-placement="stacked" />
+            </ion-item>
+            <ion-item-divider>
+              <ion-label><b>Child’s Information</b></ion-label>
+            </ion-item-divider>
+            <ion-item>
+              <ion-input formControlName="childName" placeholder="e.g Sarah Mohammad" label="Child’s Full Name"
+                label-placement="stacked" />
+            </ion-item>
+            <ion-item>
+              <ion-label class="ion-text-wrap" position="stacked">
+                Child’s Date of Birth
+              </ion-label>
 
-            <ion-row style="width: 100%;">
-              <ion-col size="4">
-                <ion-select formControlName="childDobDay" placeholder="Day">
-                  @for (day of days; track $index) {
-                  <ion-select-option [value]="day">{{ day }}</ion-select-option>
-                  }
-                </ion-select>
-              </ion-col>
-              <ion-col size="4">
-                <ion-select formControlName="childDobMonth" placeholder="Month">
-                  @for (month of months; track $index) {
-                  <ion-select-option [value]="month">{{ month }}</ion-select-option>
-                  }
-                </ion-select>
-              </ion-col>
-
-              <ion-col size="4">
-                <ion-select formControlName="childDobYear" placeholder="Year">
-                  @for (year of years; track $index) {
-                  <ion-select-option [value]="year">{{ year }}</ion-select-option>
-                  }
-                </ion-select>
-              </ion-col>
-            </ion-row>
-          </ion-item>
-          <ion-item>
-            <ion-select formControlName="grade" placeholder="e.g Grade 2" label="Grade" label-placement="stacked">
-              @for (grade of grades; track $index) {
-              <ion-select-option [value]="grade">{{ grade }}</ion-select-option>
-              }
-            </ion-select>
-          </ion-item>
-          <ion-item>
-            <ion-label class="ion-text-wrap" position="stacked">
-              Gender
-            </ion-label>
-            <ion-radio-group formControlName="gender" style="width: 100%;">
-              <ion-row>
-                <ion-col size="6">
-                  <ion-radio value="boy" labelPlacement="start">Boy</ion-radio>
+              <ion-row style="width: 100%;">
+                <ion-col size="4">
+                  <ion-select formControlName="childDobDay" placeholder="Day">
+                    @for (day of days; track $index) {
+                    <ion-select-option [value]="day">{{ day }}</ion-select-option>
+                    }
+                  </ion-select>
                 </ion-col>
-                <ion-col size="6">
-                  <ion-radio value="girl" labelPlacement="start">Girl</ion-radio>
+                <ion-col size="4">
+                  <ion-select formControlName="childDobMonth" placeholder="Month">
+                    @for (month of months; track $index) {
+                    <ion-select-option [value]="month">{{ month }}</ion-select-option>
+                    }
+                  </ion-select>
+                </ion-col>
+
+                <ion-col size="4">
+                  <ion-select formControlName="childDobYear" placeholder="Year">
+                    @for (year of years; track $index) {
+                    <ion-select-option [value]="year">{{ year }}</ion-select-option>
+                    }
+                  </ion-select>
                 </ion-col>
               </ion-row>
-            </ion-radio-group>
-          </ion-item>
-          <ion-item-divider>
-            <ion-label><b>As a parent select any 3 topics</b></ion-label>
-          </ion-item-divider>
-          @for (topic of topics; track $index) {
-          <ion-chip (click)="toggleTopicSelection(topic)" [outline]="!isSelected(topic)"
-            [color]="isSelected(topic) ? 'primary' : 'medium'">
-            {{ topic }}
-          </ion-chip>
-          }
-        </ion-list>
-        <ion-button expand="full" type="submit" [disabled]="!subscribeForm.valid">Submit</ion-button>
-      </form>
-    </ion-card-content>
-  </ion-card>
+            </ion-item>
+            <ion-item>
+              <ion-select formControlName="grade" placeholder="e.g Grade 2" label="Grade" label-placement="stacked">
+                @for (grade of grades; track $index) {
+                <ion-select-option [value]="grade">{{ grade }}</ion-select-option>
+                }
+              </ion-select>
+            </ion-item>
+            <ion-item>
+              <ion-label class="ion-text-wrap" position="stacked">
+                Gender
+              </ion-label>
+              <ion-radio-group formControlName="gender" style="width: 100%;">
+                <ion-row>
+                  <ion-col size="6">
+                    <ion-radio value="boy" labelPlacement="start">Boy</ion-radio>
+                  </ion-col>
+                  <ion-col size="6">
+                    <ion-radio value="girl" labelPlacement="start">Girl</ion-radio>
+                  </ion-col>
+                </ion-row>
+              </ion-radio-group>
+            </ion-item>
+            <ion-item-divider>
+              <ion-label><b>As a parent select any 3 topics</b></ion-label>
+            </ion-item-divider>
+            @for (topic of topics; track $index) {
+            <ion-chip (click)="toggleTopicSelection(topic)" [outline]="!isSelected(topic)"
+              [color]="isSelected(topic) ? 'primary' : 'medium'">
+              {{ topic }}
+            </ion-chip>
+            }
+          </ion-list>
+          <ion-button expand="full" type="submit" [disabled]="!subscribeForm.valid">Submit</ion-button>
+        </form>
+        <div style="background-color: #F1EDFE;padding: 32px;display: flex;flex-direction: column;gap: 24px;">
+          <div>
+            <p><b>Summary</b>
+              <br>
+              of your Monthly Surprise Box
+            </p>
+          </div>
+          <div style="background-color: #fff;min-height: 96px;">
+
+          </div>
+        </div>
+      </div>
+    </app-container>
+
+  </div>
+
 </ion-content>

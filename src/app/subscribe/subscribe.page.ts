@@ -25,6 +25,7 @@ import {
   IonCol
   
 } from '@ionic/angular/standalone';
+import { ContainerPage } from '../shared/container/container.page';
 
 @Component({
   selector: 'app-subscribe',
@@ -45,7 +46,7 @@ import {
     IonItemDivider,
     IonContent,
     IonCard,
-    IonGrid,
+    ContainerPage,
     IonRow,
     IonCol,
     IonCardContent,
